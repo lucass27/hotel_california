@@ -1,5 +1,7 @@
+print("Prueba Git")
 
-def hola(palabra):
-    print(palabra)
 
-hola("saludo")    
+
+print("Prueba 2")
+
+saludo = "hola"
