@@ -24,7 +24,7 @@ piso4_categoria = ["estandar","estandar","estandar","estandar","estandar","estan
 piso4_reservada = [False,False,False,False,False,False,False,False,False,False]
 piso4_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
 piso4_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
-piso3_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
+piso4_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 piso5_numero = [501,502,503,504,505,506,507,508,509,510]
 piso5_categoria = ["estandar","estandar","estandar","estandar","estandar","estandar","estandar","estandar","suite","suite"]
@@ -38,7 +38,7 @@ piso6_categoria = ["Premium","Premium","Premium","Premium","Premium","Premium","
 piso6_reservada = [False,False,False,False,False,False,False,False,False,False]
 piso6_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
 piso6_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
-piso1_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
+piso6_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 # Función que muestra el menú con las opciones disponibles
 def opciones_menu():
@@ -57,36 +57,49 @@ def ingresarOpcion():
     return opcion   # devuelve la opción válida
 
 def ver_hotel():
-    print(piso1_numero)
-    print(piso2_numero)
-    print(piso3_numero)
-    print(piso4_numero)
-    print(piso5_numero)
-    print(piso6_numero)
+    print("HABITACIONES NUMERADAS \n ====================")
+    print("piso 1", piso1_numero)
+    print("piso 2", piso2_numero)
+    print("piso 3", piso3_numero)
+    print("piso 4", piso4_numero)
+    print("piso 5", piso5_numero)
+    print("piso 6", piso6_numero)
 
 def ver_reservas():
-    print(piso1_reservada)
-    print(piso2_reservada)
-    print(piso3_reservada)
-    print(piso4_reservada)
-    print(piso5_reservada)
-    print(piso6_reservada)
+    print("RESERVAS CONFIRMADAS \n ====================")
+    print("piso 1", piso1_reservada)
+    print("piso 2", piso2_reservada)
+    print("piso 3", piso3_reservada)
+    print("piso 4", piso4_reservada)
+    print("piso 5", piso5_reservada)
+    print("piso 6", piso6_reservada)
 
 def ver_servicios():
-    print(piso1_servicio)
-    print(piso2_servicio)
-    print(piso3_servicio)
-    print(piso4_servicio)
-    print(piso5_servicio)
-    print(piso6_servicio)
+    print("ESTADOS DE SERVICIOS \n ====================")
+    print("piso 1", piso1_servicio)
+    print("piso 2", piso2_servicio)
+    print("piso 3", piso3_servicio)
+    print("piso 4", piso4_servicio)
+    print("piso 5", piso5_servicio)
+    print("piso 6", piso6_servicio)
 
 def ver_huesped():
+    print("ESTADOS DE HUESPED \n ====================")
     print("piso 1", piso1_huesped)
     print("piso 2", piso2_huesped)
     print("piso 3", piso3_huesped)
     print("piso 4", piso4_huesped)
     print("piso 5", piso5_huesped)
     print("piso 6", piso6_huesped)
+
+def ver_estadoReserva():
+    print("ESTADOS DE RESERVA \n ====================")
+    print("piso 1", piso1_estadoReserva)
+    print("piso 2", piso2_estadoReserva)
+    print("piso 3", piso3_estadoReserva)
+    print("piso 4", piso4_estadoReserva)
+    print("piso 5", piso5_estadoReserva)
+    print("piso 6", piso6_estadoReserva)
 
 def ver_precio(piso,numero):
     """funcion que le pasas una habitacion y devuelve el precio"""
@@ -194,7 +207,20 @@ def asignar_huesped(piso,numero):
     else:
         piso6_huesped[numero-601] = nombre+" "+apellido
 
-
+def asignar_estadoReserva(piso,numero):
+    estado = int(input("Cual es el estado de la reserva: \n Confirmada (1) \n Provisoria (2) \n Cancelada (3) \n ingrese valor: "))
+    if piso == 1:
+        piso1_estadoReserva[numero-101] = estado
+    if piso == 2:
+        piso2_estadoReserva[numero-201] = estado
+    if piso == 3:
+        piso3_estadoReserva[numero-301] = estado
+    if piso == 4:
+        piso4_estadoReserva[numero-401] = estado
+    if piso == 5:
+        piso5_estadoReserva[numero-501] = estado
+    if piso == 6:
+        piso6_estadoReserva[numero-601] = estado
 
 def reservar_habitacion(piso,numero):
     """se ingresa el piso y numero de habitacion a reservar"""
