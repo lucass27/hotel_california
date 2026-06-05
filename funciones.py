@@ -1,38 +1,44 @@
 piso1_numero = [101,102,103,104,105,106,107,108,109,110]
 piso1_categoria = ["estandar","estandar","estandar","estandar","estandar","estandar","estandar","estandar","suite","suite"]
 piso1_reservada = [False,False,False,False,False,False,False,False,False,False]
-piso1_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
-piso1_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
+piso1_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio.
+piso1_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación.
+piso1_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 piso2_numero = [201,202,203,204,205,206,207,208,209,210]
 piso2_categoria = ["estandar","estandar","estandar","estandar","estandar","estandar","estandar","estandar","suite","suite"]
 piso2_reservada = [False,False,False,False,False,False,False,False,False,False]
 piso2_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
 piso2_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
+piso2_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 piso3_numero = [301,302,303,304,305,306,307,308,309,310]
 piso3_categoria = ["estandar","estandar","estandar","estandar","estandar","estandar","estandar","estandar","suite","suite"]
 piso3_reservada = [False,False,False,False,False,False,False,False,False,False]
 piso3_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
 piso3_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
+piso3_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 piso4_numero = [401,402,403,404,405,406,407,408,409,410]
 piso4_categoria = ["estandar","estandar","estandar","estandar","estandar","estandar","estandar","estandar","suite","suite"]
 piso4_reservada = [False,False,False,False,False,False,False,False,False,False]
 piso4_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
 piso4_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
+piso3_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 piso5_numero = [501,502,503,504,505,506,507,508,509,510]
 piso5_categoria = ["estandar","estandar","estandar","estandar","estandar","estandar","estandar","estandar","suite","suite"]
 piso5_reservada = [False,False,False,False,False,False,False,False,False,False]
 piso5_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
 piso5_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
+piso5_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 piso6_numero = [601,602,603,604,605,606,607,608,609,610]
 piso6_categoria = ["Premium","Premium","Premium","Premium","Premium","Premium","Premium","Premium","Premium","Premium",]
 piso6_reservada = [False,False,False,False,False,False,False,False,False,False]
 piso6_servicio = [0,0,0,0,0,0,0,0,0,0] #0 es que no tiene ningun servicio
 piso6_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a la habitación
+piso1_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 
 # Función que muestra el menú con las opciones disponibles
 def opciones_menu():
@@ -75,12 +81,12 @@ def ver_servicios():
     print(piso6_servicio)
 
 def ver_huesped():
-    print(piso1_huesped)
-    print(piso2_huesped)
-    print(piso3_huesped)
-    print(piso4_huesped)
-    print(piso5_huesped)
-    print(piso6_huesped)
+    print("piso 1", piso1_huesped)
+    print("piso 2", piso2_huesped)
+    print("piso 3", piso3_huesped)
+    print("piso 4", piso4_huesped)
+    print("piso 5", piso5_huesped)
+    print("piso 6", piso6_huesped)
 
 def ver_precio(piso,numero):
     """funcion que le pasas una habitacion y devuelve el precio"""
@@ -173,31 +179,20 @@ def asignar_servicio(piso,numero):
     return servicio
 
 def asignar_huesped(piso,numero):
+    nombre = str(input("ingrese el nombre del huesped: "))
+    apellido = str(input("ingrese el apellido del huesped: "))
     if piso == 1:
-        nombre = str(input("ingrese el nombre del huesped: "))
-        apellido = str(input("ingrese el apellido del huesped: "))
         piso1_huesped[numero-101] = nombre+" "+apellido
-    if piso == 2:
-        nombre = str(input("ingrese el nombre del huesped: "))
-        apellido = str(input("ingrese el apellido del huesped: "))
+    elif piso == 2:
         piso2_huesped[numero-201] = nombre+" "+apellido
-    if piso == 3:
-        nombre = str(input("ingrese el nombre del huesped: "))
-        apellido = str(input("ingrese el apellido del huesped: "))
+    elif piso == 3:
         piso3_huesped[numero-301] = nombre+" "+apellido
-    if piso == 4:
-        nombre = str(input("ingrese el nombre del huesped: "))
-        apellido = str(input("ingrese el apellido del huesped: "))
+    elif piso == 4:
         piso4_huesped[numero-401] = nombre+" "+apellido
-    if piso == 5:
-        nombre = str(input("ingrese el nombre del huesped: "))
-        apellido = str(input("ingrese el apellido del huesped: "))
+    elif piso == 5:
         piso5_huesped[numero-501] = nombre+" "+apellido
-    if piso == 6:
-        nombre = str(input("ingrese el nombre del huesped: "))
-        apellido = str(input("ingrese el apellido del huesped: "))
+    else:
         piso6_huesped[numero-601] = nombre+" "+apellido
-
 
 
 
@@ -234,6 +229,8 @@ def reservar_habitacion(piso,numero):
             print("la habitacion ya esta resevada")
         else:
             piso6_reservada[numero-601] = True
+
+
 
 def opcion1():
         print("reservas actuales: ")
