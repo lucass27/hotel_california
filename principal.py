@@ -24,3 +24,6 @@ piso6_numero = [601,602,603,604,605,606,607,608,609,610]
 piso6_categoria = ["Premium","Premium","Premium","Premium","Premium","Premium","Premium","Premium","Premium","Premium",]
 piso6_reservada = [False,False,False,False,False,False,False,False,False,False]
 
+ver_huesped()
+asignar_huesped(3,310)
+ver_huesped()

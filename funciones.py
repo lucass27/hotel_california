@@ -74,6 +74,14 @@ def ver_servicios():
     print(piso5_servicio)
     print(piso6_servicio)
 
+def ver_huesped():
+    print(piso1_huesped)
+    print(piso2_huesped)
+    print(piso3_huesped)
+    print(piso4_huesped)
+    print(piso5_huesped)
+    print(piso6_huesped)
+
 def ver_precio(piso,numero):
     """funcion que le pasas una habitacion y devuelve el precio"""
     if piso == 1:
@@ -163,6 +171,34 @@ def asignar_servicio(piso,numero):
         else:
             piso6_servicio[numero-601] = 4
     return servicio
+
+def asignar_huesped(piso,numero):
+    if piso == 1:
+        nombre = str(input("ingrese el nombre del huesped: "))
+        apellido = str(input("ingrese el apellido del huesped: "))
+        piso1_huesped[numero-101] = nombre+" "+apellido
+    if piso == 2:
+        nombre = str(input("ingrese el nombre del huesped: "))
+        apellido = str(input("ingrese el apellido del huesped: "))
+        piso2_huesped[numero-201] = nombre+" "+apellido
+    if piso == 3:
+        nombre = str(input("ingrese el nombre del huesped: "))
+        apellido = str(input("ingrese el apellido del huesped: "))
+        piso3_huesped[numero-301] = nombre+" "+apellido
+    if piso == 4:
+        nombre = str(input("ingrese el nombre del huesped: "))
+        apellido = str(input("ingrese el apellido del huesped: "))
+        piso4_huesped[numero-401] = nombre+" "+apellido
+    if piso == 5:
+        nombre = str(input("ingrese el nombre del huesped: "))
+        apellido = str(input("ingrese el apellido del huesped: "))
+        piso5_huesped[numero-501] = nombre+" "+apellido
+    if piso == 6:
+        nombre = str(input("ingrese el nombre del huesped: "))
+        apellido = str(input("ingrese el apellido del huesped: "))
+        piso6_huesped[numero-601] = nombre+" "+apellido
+
+
 
 
 def reservar_habitacion(piso,numero):
