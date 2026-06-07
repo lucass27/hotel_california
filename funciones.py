@@ -483,3 +483,53 @@ def eliminar_habitacion(piso,numero):
             reservar_habitacion(piso2,numero2)
         else:
             piso6_reservada[numero-601] = False
+
+def piso_valido(piso,numero):
+    """funcion que chequea que el piso y numero sea valido"""
+    respuesta = False
+    if piso >= 1 and piso <= 6:
+        if piso == 1:
+            if numero >= 101 and numero <= 110:
+                respuesta = True
+            else:
+                respuesta = False
+        if piso == 2:
+            if numero >= 201 and numero <= 210:
+                respuesta = True
+            else:
+                respuesta = False
+        if piso == 3:
+            if numero >= 301 and numero <= 310:
+                respuesta = True
+            else:
+                respuesta = False
+        if piso == 4:
+            if numero >= 401 and numero <= 410:
+                respuesta = True
+            else:
+                respuesta = False
+        if piso == 5:
+            if numero >= 501 and numero <= 510:
+                respuesta = True
+            else:
+                respuesta = False
+        if piso == 6:
+            if numero >= 601 and numero <= 610:
+                respuesta = True
+            else:
+                respuesta = False
+    else:
+        respuesta = False
+    return respuesta
+
+def ordenar_reservas(reservas):
+    n = len(reservas)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            a = reservas[j]
+            b = reservas[j + 1]
+
+            if a[1] < b[1] or (a[1] == b[1] and a[0] > b[0]):
+                reservas[j], reservas[j + 1] = reservas[j + 1], reservas[j]
+    
+    return reservas

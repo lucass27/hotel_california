@@ -54,12 +54,6 @@ def ejecutar_menu(opcion):
             opciones_menu()
             opcion = ingresarOpcion()  
             ejecutar_menu(opcion)      
-    if opcion == 5:
-        ver_reservas()
-        ver_huesped()
-        ver_servicios()
-        ver_estadoReserva()
-        print(reservas)
     
     if opcion == 3:
         piso = int(input("ingrese el piso de habitación a modificar (entre 1 y 6): "))
@@ -81,7 +75,16 @@ def ejecutar_menu(opcion):
             opciones_menu()
             opcion = ingresarOpcion()  
             ejecutar_menu(opcion)
+    
+    if opcion == 4:
+        reservas_ordenadas = ordenar_reservas(reservas)
+        print(reservas_ordenadas)
 
+    if opcion == 5:
+        ver_reservas()
+        ver_huesped()
+        ver_servicios()
+        ver_estadoReserva()
 
 
 ejecutar_menu(opcion)
