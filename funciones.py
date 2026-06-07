@@ -253,9 +253,26 @@ def asignar_servicio(piso,numero):
             piso6_servicio[numero-601] = 4
     return servicio
 
+def eliminar_servicio(piso,numero):
+    """eliminar un servicio a una habitacion"""
+    if piso == 1:
+        piso1_servicio[numero-101] = 0
+    if piso == 2:
+        piso2_servicio[numero-201] = 0
+    if piso == 3:
+        piso3_servicio[numero-301] = 0
+    if piso == 4:
+        piso4_servicio[numero-401] = 0
+    if piso == 5:
+        piso5_servicio[numero-501] = 0
+    if piso == 6:
+        piso6_servicio[numero-601] = 0
+
 def asignar_huesped(piso,numero):
+    """asignar huesped a habitacion"""
     nombre = str(input("ingrese el nombre del huesped: "))
     apellido = str(input("ingrese el apellido del huesped: "))
+    nombreCompleto = nombre+" "+apellido
     if piso == 1:
         piso1_huesped[numero-101] = nombre+" "+apellido
     elif piso == 2:
@@ -268,6 +285,22 @@ def asignar_huesped(piso,numero):
         piso5_huesped[numero-501] = nombre+" "+apellido
     else:
         piso6_huesped[numero-601] = nombre+" "+apellido
+    return nombreCompleto
+
+def eliminar_huesped(piso,numero):
+    """eliminar huesped de habitacion"""
+    if piso == 1:
+        piso1_huesped[numero-101] = 0
+    elif piso == 2:
+        piso2_huesped[numero-201] = 0
+    elif piso == 3:
+        piso3_huesped[numero-301] = 0
+    elif piso == 4:
+        piso4_huesped[numero-401] = 0
+    elif piso == 5:
+        piso5_huesped[numero-501] = 0
+    else:
+        piso6_huesped[numero-601] = 0
 
 def asignar_estadoReserva(piso,numero):
     estado = int(input("Cual es el estado de la reserva: \n Confirmada (1) \n Provisoria (2) \n Cancelada (3) \n ingrese valor: "))
@@ -283,6 +316,20 @@ def asignar_estadoReserva(piso,numero):
         piso5_estadoReserva[numero-501] = estado
     if piso == 6:
         piso6_estadoReserva[numero-601] = estado
+
+def eliminar_estadoReserva(piso,numero):
+    if piso == 1:
+        piso1_estadoReserva[numero-101] = 0
+    if piso == 2:
+        piso2_estadoReserva[numero-201] = 0
+    if piso == 3:
+        piso3_estadoReserva[numero-301] = 0
+    if piso == 4:
+        piso4_estadoReserva[numero-401] = 0
+    if piso == 5:
+        piso5_estadoReserva[numero-501] = 0
+    if piso == 6:
+        piso6_estadoReserva[numero-601] = 0
 
 def reservar_habitacion(piso,numero):
     """se ingresa el piso y numero de habitacion a reservar"""
