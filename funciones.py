@@ -377,6 +377,9 @@ def reservar_habitacion(piso,numero):
             print("ingrese otra habitacion: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso1_reservada[numero-101] = True
@@ -386,6 +389,9 @@ def reservar_habitacion(piso,numero):
             print("ingrese otra habitacion: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso2_reservada[numero-201] = True
@@ -395,6 +401,9 @@ def reservar_habitacion(piso,numero):
             print("ingrese otra habitacion: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso3_reservada[numero-301] = True
@@ -404,6 +413,9 @@ def reservar_habitacion(piso,numero):
             print("ingrese otra habitacion: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso4_reservada[numero-401] = True
@@ -413,6 +425,9 @@ def reservar_habitacion(piso,numero):
             print("ingrese otra habitacion: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso5_reservada[numero-501] = True
@@ -422,6 +437,9 @@ def reservar_habitacion(piso,numero):
             print("ingrese otra habitacion: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso6_reservada[numero-601] = True
@@ -435,6 +453,9 @@ def eliminar_habitacion(piso,numero):
             print("ingrese otra habitacion que si la esté: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso1_reservada[numero-101] = False
@@ -444,6 +465,9 @@ def eliminar_habitacion(piso,numero):
             print("ingrese otra habitacion que si la esté: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso2_reservada[numero-201] = False
@@ -453,6 +477,9 @@ def eliminar_habitacion(piso,numero):
             print("ingrese otra habitacion que si la esté: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso3_reservada[numero-301] = False
@@ -462,6 +489,9 @@ def eliminar_habitacion(piso,numero):
             print("ingrese otra habitacion que si la esté: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso4_reservada[numero-401] = False
@@ -471,6 +501,9 @@ def eliminar_habitacion(piso,numero):
             print("ingrese otra habitacion que si la esté: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso5_reservada[numero-501] = False
@@ -480,6 +513,9 @@ def eliminar_habitacion(piso,numero):
             print("ingrese otra habitacion que si la esté: ")
             piso2 = int(input("ingrese piso: "))
             numero2 = int(input("ingrese habitacion: "))
+            while piso_valido(piso,numero) != True:
+                piso2 = int(input("ingrese piso valido: "))
+                numero2 = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso2,numero2)
         else:
             piso6_reservada[numero-601] = False

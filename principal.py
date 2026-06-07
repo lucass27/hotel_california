@@ -14,6 +14,9 @@ def ejecutar_menu(opcion):
             print("RESERVA NUMERO ",i+1)
             piso = int(input("ingrese el piso de habitación a reservar (entre 1 y 6): "))
             numero = int(input("ingrese el numero de habitacion correspondiente al piso: "))
+            while piso_valido(piso,numero) != True:
+                piso = int(input("ingrese piso valido: "))
+                numero = int(input("ingrese número de habitación valido: "))
             reservar_habitacion(piso,numero)
             cantidad_noches = int(input("ingrese cantidad de noches: "))
             asignar_noches(piso,numero,cantidad_noches)
@@ -34,6 +37,9 @@ def ejecutar_menu(opcion):
     if opcion == 2:
         piso = int(input("ingrese el piso de habitación a eliminar (entre 1 y 6): "))
         numero = int(input("ingrese el numero de habitacion correspondiente al piso: "))
+        while piso_valido(piso,numero) != True:
+            piso = int(input("ingrese piso valido: "))
+            numero = int(input("ingrese número de habitación valido: "))
         respuesta = int(input("esta seguro que quiere eliminar la habitacion ?. (1=SI | 2=NO)"))
         if respuesta == 1:
             estado = ver_estadoReserva_individual(piso,numero)
@@ -58,6 +64,9 @@ def ejecutar_menu(opcion):
     if opcion == 3:
         piso = int(input("ingrese el piso de habitación a modificar (entre 1 y 6): "))
         numero = int(input("ingrese el numero de habitacion correspondiente al piso: "))
+        while piso_valido(piso,numero) != True:
+            piso = int(input("ingrese piso valido: "))
+            numero = int(input("ingrese número de habitación valido: "))
         respuesta = int(input(" modificar huésped (1) \n modificar estado (2) \n modificar ambas (3) \n ingrese opción: "))
         if respuesta == 1:
             asignar_huesped(piso,numero)
