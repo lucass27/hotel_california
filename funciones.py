@@ -224,38 +224,61 @@ def asignar_estadoReserva(piso,numero):
 
 def reservar_habitacion(piso,numero):
     """se ingresa el piso y numero de habitacion a reservar"""
-    """si ya esta reservada, no te la deja reservar"""
+    """si ya esta reservada, no te la deja reservar, y te pide otra"""
     if piso == 1:
         if piso1_reservada[numero-101] == True:
             print("la habitacion ya esta resevada")
+            print("ingrese otra habitacion: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
         else:
             piso1_reservada[numero-101] = True
     elif piso == 2:
-        if piso1_reservada[numero-201] == True:
+        if piso2_reservada[numero-201] == True:
             print("la habitacion ya esta resevada")
+            print("ingrese otra habitacion: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
         else:
             piso2_reservada[numero-201] = True
     elif piso == 3:
-        if piso1_reservada[numero-301] == True:
+        if piso3_reservada[numero-301] == True:
             print("la habitacion ya esta resevada")
+            print("ingrese otra habitacion: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
         else:
             piso3_reservada[numero-301] = True
     elif piso == 4:
-        if piso1_reservada[numero-401] == True:
+        if piso4_reservada[numero-401] == True:
             print("la habitacion ya esta resevada")
+            print("ingrese otra habitacion: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
         else:
             piso4_reservada[numero-401] = True
     elif piso == 5:
-        if piso1_reservada[numero-501] == True:
+        if piso5_reservada[numero-501] == True:
             print("la habitacion ya esta resevada")
+            print("ingrese otra habitacion: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
         else:
             piso5_reservada[numero-501] = True
     else:
-        if piso1_reservada[numero-601] == True:
+        if piso6_reservada[numero-601] == True:
             print("la habitacion ya esta resevada")
+            print("ingrese otra habitacion: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
         else:
             piso6_reservada[numero-601] = True
-
 
 
 def opcion1():
@@ -267,7 +290,3 @@ def opcion1():
         reservar_habitacion(piso,numero)
         print("RESERVA CONFIRMADA. ASI QUEDO: ")
         ver_reservas()
-        print("quiere realizar otra reserva? (SI/NO)")
-        rta = str(input())
-        if rta == "SI":
-            opcion1()
