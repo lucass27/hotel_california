@@ -42,11 +42,14 @@ piso6_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva p
 
 # Función que muestra el menú con las opciones disponibles
 def opciones_menu():
+    print("========================== \n LURABÉ FRASANÇ RESORT \n ========================= ")
     print("1. Registrar nueva reserva")      # muestra la opción 1
     print("2. Eliminar reserva")             # muestra la opción 2
     print("3. Modificar huesped o estado")   # muestra la opción 3
     print("4. Informe general de reservas")  # muestra la opción 4
     print("5. Salir")                        # muestra la opción 5
+    print("==========================")
+    print(" ")
 
 # Función que pide una opción al usuario y la valida (que sea del 1 al 5)
 def ingresarOpcion():
@@ -100,6 +103,65 @@ def ver_estadoReserva():
     print("piso 4", piso4_estadoReserva)
     print("piso 5", piso5_estadoReserva)
     print("piso 6", piso6_estadoReserva)
+
+def verificar_reservada(piso,numero):
+    """devuelve true si esta reservada y false si no lo está"""
+    estado = False
+    if piso == 1:
+        if piso1_reservada[numero-101] == False:
+            print("la habitación no está reservada")
+        else:
+            estado = True
+            print("la habitación está reservada")
+    elif piso == 2:
+        if piso2_reservada[numero-201] == False:
+            print("la habitación no está reservada")
+        else:
+            estado = True
+            print("la habitación está reservada")
+    elif piso == 3:
+        if piso3_reservada[numero-301] == False:
+            print("la habitación no está reservada")
+        else:
+            estado = True
+            print("la habitación está reservada")
+    elif piso == 4:
+        if piso4_reservada[numero-401] == False:
+            print("la habitación no está reservada")
+        else:
+            estado = True
+            print("la habitación está reservada")
+    elif piso == 5:
+        if piso5_reservada[numero-501] == False:
+            print("la habitación no está reservada")
+        else:
+            estado = True
+            print("la habitación está reservada")
+    else:
+        if piso6_reservada[numero-601] == False:
+            print("la habitación no está reservada")
+        else:
+            estado = True
+            print("la habitación está reservada")
+    return estado
+
+def ver_categoria(piso,numero):
+    """funcion que le pasas una habitacion y devuelve la categoria""" 
+    categoria = " "
+    if piso == 1:
+        categoria = piso1_categoria[numero-101]
+    elif piso == 2:
+        categoria = piso2_categoria[numero-201]
+    elif piso == 3:
+        categoria = piso3_categoria[numero-301]
+    elif piso == 4:
+        categoria = piso4_categoria[numero-401]
+    elif piso == 5:
+        categoria = piso5_categoria[numero-501]
+    else:
+        categoria = piso6_categoria[numero-601]
+    return categoria
+
 
 def ver_precio(piso,numero):
     """funcion que le pasas una habitacion y devuelve el precio"""
@@ -280,13 +342,60 @@ def reservar_habitacion(piso,numero):
         else:
             piso6_reservada[numero-601] = True
 
-
-def opcion1():
-        print("reservas actuales: ")
-        ver_reservas()
-        print("RESERVAR: ")
-        piso = int(input("ingrese el piso: "))
-        numero = int(input("ingrese el numero de habitacion: "))
-        reservar_habitacion(piso,numero)
-        print("RESERVA CONFIRMADA. ASI QUEDO: ")
-        ver_reservas()
+def eliminar_habitacion(piso,numero):
+    """se ingresa el piso y numero de habitacion a eliminar"""
+    """si no esté reservada, no te la deja eliminar, y te pide otra"""
+    if piso == 1:
+        if piso1_reservada[numero-101] == False:
+            print("la habitacion no está resevada")
+            print("ingrese otra habitacion que si la esté: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
+        else:
+            piso1_reservada[numero-101] = False
+    elif piso == 2:
+        if piso2_reservada[numero-201] == False:
+            print("la habitacion no está resevada")
+            print("ingrese otra habitacion que si la esté: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
+        else:
+            piso2_reservada[numero-201] = False
+    elif piso == 3:
+        if piso3_reservada[numero-301] == False:
+            print("la habitacion no está resevada")
+            print("ingrese otra habitacion que si la esté: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
+        else:
+            piso3_reservada[numero-301] = False
+    elif piso == 4:
+        if piso4_reservada[numero-401] == False:
+            print("la habitacion no está resevada")
+            print("ingrese otra habitacion que si la esté: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
+        else:
+            piso4_reservada[numero-401] = False
+    elif piso == 5:
+        if piso5_reservada[numero-501] == False:
+            print("la habitacion no está resevada")
+            print("ingrese otra habitacion que si la esté: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
+        else:
+            piso5_reservada[numero-501] = False
+    else:
+        if piso6_reservada[numero-601] == False:
+            print("la habitacion no está resevada")
+            print("ingrese otra habitacion que si la esté: ")
+            piso2 = int(input("ingrese piso: "))
+            numero2 = int(input("ingrese habitacion: "))
+            reservar_habitacion(piso2,numero2)
+        else:
+            piso6_reservada[numero-601] = False
