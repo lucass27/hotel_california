@@ -46,8 +46,8 @@ piso6_huesped = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay ningun huesped asignado a
 piso6_estadoReserva = [0,0,0,0,0,0,0,0,0,0] #0 es que no hay estado de reserva porque no fue reservada la habitación.
 piso6_noches = [0,0,0,0,0,0,0,0,0,0]
 
-# Función que muestra el menú con las opciones disponibles
 def opciones_menu():
+    """Función que muestra el menú con las opciones disponibles"""
     print("========================== \n LURABÉ FRASANÇ RESORT \n ========================= ")
     print("1. Registrar nueva reserva")      # muestra la opción 1
     print("2. Eliminar reserva")             # muestra la opción 2
@@ -57,15 +57,17 @@ def opciones_menu():
     print("==========================")
     print(" ")
 
-# Función que pide una opción al usuario y la valida (que sea del 1 al 5)
+
 def ingresarOpcion():
-    opcion = int(input("Ingrese una opción: "))   # pide un número y lo convierte a entero
-    while opcion < 1 or opcion > 5:               # mientras el número esté fuera del rango 1-5...
-        print("Opción no válida. Por favor, ingrese una opción válida.")  # avisa que está mal
-        opcion = int(input("Ingrese una opción: "))   # vuelve a pedir el número
-    return opcion   # devuelve la opción válida
+    """Función que pide una opción al usuario y la valida (que sea del 1 al 5)"""
+    opcion = int(input("Ingrese una opción: "))  
+    while opcion < 1 or opcion > 5:               
+        print("Opción no válida. Por favor, ingrese una opción válida.")  
+        opcion = int(input("Ingrese una opción: "))   
+    return opcion   
 
 def ver_hotel():
+    """muestra las habitaciones en cuadricula"""
     print("HABITACIONES NUMERADAS \n ====================")
     print("piso 1", piso1_numero)
     print("piso 2", piso2_numero)
@@ -75,6 +77,7 @@ def ver_hotel():
     print("piso 6", piso6_numero)
 
 def ver_reservas():
+    """muestra las reservas en cuadricula (confirmadas o no por true y false)"""
     print("RESERVAS CONFIRMADAS \n ====================")
     print("piso 1", piso1_reservada)
     print("piso 2", piso2_reservada)
@@ -84,6 +87,7 @@ def ver_reservas():
     print("piso 6", piso6_reservada)
 
 def ver_servicios():
+    """muestra los servicios asociados a las habitaciones en cuadricula"""
     print("ESTADOS DE SERVICIOS \n ====================")
     print("piso 1", piso1_servicio)
     print("piso 2", piso2_servicio)
@@ -93,7 +97,8 @@ def ver_servicios():
     print("piso 6", piso6_servicio)
 
 def ver_huesped():
-    print("ESTADOS DE HUESPED \n ====================")
+    """muestra los huespedes de cada habitacion por cuadricula"""
+    print("HUESPED POR HABITACION \n ====================")
     print("piso 1", piso1_huesped)
     print("piso 2", piso2_huesped)
     print("piso 3", piso3_huesped)
@@ -102,6 +107,7 @@ def ver_huesped():
     print("piso 6", piso6_huesped)
 
 def ver_estadoReserva():
+    """ver estados de reserva por cuadricula"""
     print("ESTADOS DE RESERVA \n ====================")
     print("piso 1", piso1_estadoReserva)
     print("piso 2", piso2_estadoReserva)
@@ -277,17 +283,17 @@ def eliminar_servicio(piso,numero):
 def asignar_noches(piso,numero,noches):
     """eliminar un servicio a una habitacion"""
     if piso == 1:
-        piso1_servicio[numero-101] = noches
+        piso1_noches[numero-101] = noches
     if piso == 2:
-        piso2_servicio[numero-201] = noches
+        piso2_noches[numero-201] = noches
     if piso == 3:
-        piso3_servicio[numero-301] = noches
+        piso3_noches[numero-301] = noches
     if piso == 4:
-        piso4_servicio[numero-401] = noches
+        piso4_noches[numero-401] = noches
     if piso == 5:
-        piso5_servicio[numero-501] = noches
+        piso5_noches[numero-501] = noches
     if piso == 6:
-        piso6_servicio[numero-601] = noches
+        piso6_noches[numero-601] = noches
 
 def asignar_huesped(piso,numero):
     """asignar huesped a habitacion"""
@@ -324,6 +330,7 @@ def eliminar_huesped(piso,numero):
         piso6_huesped[numero-601] = 0
 
 def asignar_estadoReserva(piso,numero):
+    """asigna el estado de reserva a una reserva"""
     estado = int(input("Cual es el estado de la reserva: \n Confirmada (1) \n Provisoria (2) \n Cancelada (3) \n ingrese valor: "))
     if piso == 1:
         piso1_estadoReserva[numero-101] = estado
@@ -339,6 +346,7 @@ def asignar_estadoReserva(piso,numero):
         piso6_estadoReserva[numero-601] = estado
 
 def eliminar_estadoReserva(piso,numero):
+    """elimina el estado de una reserva dejandolo en 0"""
     if piso == 1:
         piso1_estadoReserva[numero-101] = 0
     if piso == 2:
@@ -352,7 +360,9 @@ def eliminar_estadoReserva(piso,numero):
     if piso == 6:
         piso6_estadoReserva[numero-601] = 0
 
+
 def ver_estadoReserva_individual(piso,numero):
+    """funcion que le pasas una habitacion por piso y numero y te dice cual es el estado de reserva de ese identificador"""
     estado = 0
     if piso == 1:
         estado = piso1_estadoReserva[numero-101]
@@ -558,13 +568,32 @@ def piso_valido(piso,numero):
         respuesta = False
     return respuesta
 
+def ver_huesped_individual(piso, numero):
+    """devuelve el nombre del huesped de una habitacion especifica"""
+    if piso == 1:
+        return piso1_huesped[numero - 101]
+    elif piso == 2:
+        return piso2_huesped[numero - 201]
+    elif piso == 3:
+        return piso3_huesped[numero - 301]
+    elif piso == 4:
+        return piso4_huesped[numero - 401]
+    elif piso == 5:
+        return piso5_huesped[numero - 501]
+    else:
+        return piso6_huesped[numero - 601]
+    
+
 def ordenar_reservas(reservas):
+    """Ordena una lista de reservas de mayor a menor según la cantidad de noches. 
+    En caso de empate en las noches, ordena alfabéticamente por el nombre del huésped."""
     n = len(reservas)
     for i in range(n):
         for j in range(0, n - i - 1):
             a = reservas[j]
             b = reservas[j + 1]
-
+            
+            # Comparar: si a tiene menos noches, o mismas noches pero nombre mayor alfabéticamente
             if a[1] < b[1] or (a[1] == b[1] and a[0] > b[0]):
                 reservas[j], reservas[j + 1] = reservas[j + 1], reservas[j]
     

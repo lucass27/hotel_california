@@ -3,8 +3,6 @@ from funciones import *
 opciones_menu()
 opcion = ingresarOpcion()
 
-reservas = []
-
 def ejecutar_menu(opcion):
     if opcion == 1:
         cantidad_reservas = int(input("ingrese cuantas reservas quiere realizar: "))
@@ -25,11 +23,9 @@ def ejecutar_menu(opcion):
             print("el precio por ",cantidad_noches," noches es: ",preciototal)
             categoria = ver_categoria(piso,numero)
             print("la categoria es: ",categoria)
-            nombre = asignar_huesped(piso,numero)
+            asignar_huesped(piso,numero)
             asignar_servicio(piso,numero)
             asignar_estadoReserva(piso,numero)
-            info = [nombre,cantidad_noches]
-            reservas.append(info)
         opciones_menu()
         opcion = ingresarOpcion()
         ejecutar_menu(opcion)
@@ -86,8 +82,44 @@ def ejecutar_menu(opcion):
             ejecutar_menu(opcion)
     
     if opcion == 4:
+        reservas = []
+        
+        for i in range(len(piso1_reservada)):
+            if piso1_reservada[i] == True:
+                info = [piso1_huesped[i], piso1_noches[i]]
+                reservas.append(info)
+        
+        for i in range(len(piso2_reservada)):
+            if piso2_reservada[i] == True:
+                info = [piso2_huesped[i], piso2_noches[i]]
+                reservas.append(info)
+        
+        for i in range(len(piso3_reservada)):
+            if piso3_reservada[i] == True:
+                info = [piso3_huesped[i], piso3_noches[i]]
+                reservas.append(info)
+        
+        for i in range(len(piso4_reservada)):
+            if piso4_reservada[i] == True:
+                info = [piso4_huesped[i], piso4_noches[i]]
+                reservas.append(info)
+        
+        for i in range(len(piso5_reservada)):
+            if piso5_reservada[i] == True:
+                info = [piso5_huesped[i], piso5_noches[i]]
+                reservas.append(info)
+        
+        for i in range(len(piso6_reservada)):
+            if piso6_reservada[i] == True:
+                info = [piso6_huesped[i], piso6_noches[i]]
+                reservas.append(info)
+        
         reservas_ordenadas = ordenar_reservas(reservas)
         print(reservas_ordenadas)
+
+        opciones_menu()
+        opcion = ingresarOpcion()
+        ejecutar_menu(opcion)
 
     if opcion == 5:
         ver_reservas()
