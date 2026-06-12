@@ -6,14 +6,19 @@ def principal():
         opcion = ingresarOpcion()
         
         if opcion == 1:
-            cantidad = int(input("¿Cuántas reservas desea registrar? "))
+            cantidad = input("¿Cuántas reservas desea registrar? ")
+            while not es_numero_positivo(cantidad):
+                print("Cantidad inválida, ingrese un número positivo")
+                cantidad = input("¿Cuántas reservas desea registrar? ")
+            cantidad = int(cantidad)
             for i in range(cantidad):
+                print("RESERVA N°: ", i+1)
                 id_habitacion = input("Ingrese el ID de la habitación: ")
-                reservar_habitacion(id_habitacion)
-                asignar_huesped(int(id_habitacion))
-                asignar_noches(int(id_habitacion))
-                asignar_servicio(int(id_habitacion))
-                asignar_estado_reserva(int(id_habitacion))
+                id_habitacion = reservar_habitacion(id_habitacion)
+                asignar_huesped(id_habitacion)
+                asignar_noches(id_habitacion)
+                asignar_servicio(id_habitacion)
+                asignar_estado_reserva(id_habitacion)
 
         elif opcion == 2:
             id_habitacion = input("Ingrese el ID de la habitación a eliminar: ")

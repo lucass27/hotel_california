@@ -70,7 +70,8 @@ def reservar_habitacion(id_habitacion):
         id_habitacion = input("Ingrese el ID de la habitación: ")
         return reservar_habitacion(id_habitacion)
     hotel[obtener_posicion(hotel, id_habitacion)][2] = True
-        
+    return id_habitacion
+
 def asignar_huesped(id_habitacion):
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
@@ -85,6 +86,7 @@ def asignar_huesped(id_habitacion):
     nombre = input("Ingrese el nombre del huésped: ")
     apellido = input("Ingrese el apellido del huésped: ")
     hotel[obtener_posicion(hotel, id_habitacion)][4] = nombre + " " + apellido
+    return id_habitacion
 
 def asignar_servicio(id_habitacion):
     id_habitacion = str(id_habitacion)
@@ -239,5 +241,7 @@ def informe_general():
     
     print("==================== INFORME GENERAL ====================")
     for hab in reservadas:
-        print("Habitación: " + str(hab[0]) + " | Categoría: " + hab[1] + " | Huésped: " + str(hab[4]) + " | Noches: " + str(hab[6]) + " | Servicio: " + servicios[hab[3]] + " | Estado: " + estados[hab[5]])
+        precio = ver_precio(hab[0])
+        print("Habitación: " + str(hab[0]) + " | Categoría: " + hab[1] + " | Huésped: " + str(hab[4]) + " | Noches: " + str(hab[6]) + " | Servicio: " + servicios[hab[3]] + " | Estado: " + estados[hab[5]] + " | Precio: $" + str(precio))
     print("=========================================================")
+
