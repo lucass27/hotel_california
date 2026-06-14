@@ -38,6 +38,7 @@ def opciones_menu():
     print(" ")
 
 def ingresarOpcion():
+    """Función que permite al usuario elegir la opción que desee, valida que la opción seacorrecta y la retorna"""
     opcion = input("Ingrese una opción: ")
     while opcion not in ["1","2","3","4","5"]:
         print("Opción no válida. Por favor, ingrese una opción válida.")
@@ -59,6 +60,9 @@ def id_valido(hotel, id_habitacion):
     return False
 
 def reservar_habitacion(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. 
+    Luego cambia el estado de la reserva a True solo si esa habitación no tiene ninguna reserva activa. 
+    En caso de tener una reserva activa pide otra habitación y se vuelve a llamar a la función."""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("====ID inválido, ingrese uno correcto====")
@@ -73,6 +77,8 @@ def reservar_habitacion(id_habitacion):
     return id_habitacion
 
 def asignar_huesped(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. Luego pide al usuario un nombre y apellido y se lo asigna a esa habitación. 
+    En el caso de que esa habitación ya tenga un huesped asignado, pide otro."""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("====ID inválido, ingrese uno correcto====")
@@ -89,6 +95,9 @@ def asignar_huesped(id_habitacion):
     return id_habitacion
 
 def asignar_servicio(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. 
+    Luego le pide al usuario que le asigne un servicio adicional a la habitación el cual 
+    también valida que sea correcto."""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("====ID inválido, ingrese uno correcto====")
@@ -107,6 +116,9 @@ def asignar_servicio(id_habitacion):
     hotel[obtener_posicion(hotel, id_habitacion)][3] = int(servicio)
 
 def asignar_estado_reserva(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. 
+    Luego le pide al usuario que le asigne un Estado de reserva a la habitación el cual 
+    también valida que sea correcto."""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("ID inválido, ingrese uno correcto")
@@ -124,6 +136,8 @@ def asignar_estado_reserva(id_habitacion):
     hotel[obtener_posicion(hotel, id_habitacion)][5] = int(estado)
 
 def ver_precio(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. 
+    Retorna el precio de la reserva calculandoló con la categoría de la habitación y la cantidad de noches."""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("ID inválido, ingrese uno correcto")
@@ -141,6 +155,9 @@ def ver_precio(id_habitacion):
     return precio
 
 def es_numero_positivo(valor):
+    """Recibe como parámetro un valor que puede ser de cualquier tipo (str, int, float) 
+    y valida que un número sea positivo mediante el algoritmo de busqueda secuencial, 
+    retornando True si lo es y False si no lo cumple"""
     digitos = "0123456789"
     if len(valor) == 0:
         return False
@@ -156,6 +173,8 @@ def es_numero_positivo(valor):
     return True
 
 def asignar_noches(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. 
+    Luego le pide al usuario que ingrese un número de noches para asignarle a esa habitación"""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("ID inválido, ingrese uno correcto")
@@ -168,6 +187,9 @@ def asignar_noches(id_habitacion):
     hotel[obtener_posicion(hotel, id_habitacion)][6] = int(noches)
 
 def eliminar_reserva(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. 
+    Luego elimina esa reserva solo si el estado de la reserva es provisoria o cancelada. 
+    Elimina el huesped, la cantidad de noches y el estado de reserva y servicio adicional"""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("ID inválido, ingrese uno correcto")
@@ -175,7 +197,14 @@ def eliminar_reserva(id_habitacion):
     id_habitacion = int(id_habitacion)
     habitacion = hotel[obtener_posicion(hotel, id_habitacion)]
     if habitacion[5] == 2 or habitacion[5] == 3:
-        hotel[obtener_posicion(hotel, id_habitacion)] = [id_habitacion, habitacion[1], False, 0, 0, 0, 0]
+        decision = input("Esta seguro que desea eliminar la reserva? S / N : ")
+        while decision not in ["S","s","N","n"]:
+            print("Opción inválida")
+            decision = input("Ingrese una opción S / N: ")
+        if decision == "S" or decision == "s":
+            hotel[obtener_posicion(hotel, id_habitacion)] = [id_habitacion, habitacion[1], False, 0, 0, 0, 0]
+        else:
+            return
     else:
         print("No se puede eliminar la reserva, el estado debe ser provisoria o cancelada")
         print("1: Ingresar otra habitación")
@@ -189,6 +218,8 @@ def eliminar_reserva(id_habitacion):
             return eliminar_reserva(id_habitacion)
 
 def modificar_reserva(id_habitacion):
+    """Función que recibe como parámetro un id de habitación y valida que sea correcto. 
+    Le pregunta al usuario si quiere modificar el huesped, el estado de reserva o ambas, y realiza el cambio."""
     id_habitacion = str(id_habitacion)
     while not id_valido(hotel, id_habitacion):
         print("ID inválido, ingrese uno correcto")
@@ -224,6 +255,9 @@ def modificar_reserva(id_habitacion):
     print(f"Habitación {id_habitacion} modificada con éxito")
 
 def informe_general():
+    """Devuelve un informe de todas las reservas activas ordenadas por cantidad de noches. 
+    En caso de igualdad de noches reservadas, se ordena por orden alfabético del nombre y apellido del huésped.
+    Contiene el número de habitación, Categoría, Huésped, Noches, Servicio, Estado de reserva y Precio. """
     servicios = ["Ninguno", "Desayuno", "Spa", "Estacionamiento", "Acceso premium"]
     estados = ["Aún no fue reservada", "Confirmada", "Provisoria", "Cancelada"]
     
@@ -240,6 +274,8 @@ def informe_general():
                 reservadas[i], reservadas[j] = reservadas[j], reservadas[i]
     
     print("==================== INFORME GENERAL ====================")
+    if len(reservadas) == 0:
+        print("NO HAY NINGUNA HABITACIÓN RESERVADA")
     for hab in reservadas:
         precio = ver_precio(hab[0])
         print("Habitación: " + str(hab[0]) + " | Categoría: " + hab[1] + " | Huésped: " + str(hab[4]) + " | Noches: " + str(hab[6]) + " | Servicio: " + servicios[hab[3]] + " | Estado: " + estados[hab[5]] + " | Precio: $" + str(precio))
